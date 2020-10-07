@@ -1,0 +1,53 @@
+body {
+  background-color: rgb(241, 241, 241);
+  margin-top: 100px;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.ui.menu {
+  background-color: rgb(102, 153, 255);
+}
+
+.ui.menu logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+}
+.ui.card.maincard {
+  width: 30%;
+  padding: 10px;
+  height: 60px;
+}
+
+.ui.card .flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.ui.card .flexRow1 {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 1200px) {
+  .ui.card.maincard {
+    width: 45%;
+    padding: 10px;
+    height: 60px;
+  }
+}
+@media (max-width: 760px) {
+  .ui.card.maincard {
+    width: 90%;
+    padding: 10px;
+    height: 60px;
+  }
+}
