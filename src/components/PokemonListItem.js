@@ -1,12 +1,17 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Button, Card } from "semantic-ui-react";
-import { setSelectedPokemonUrl } from "../actions/PokemonActions";
 
 export default function PokemonListItem({ pokemon }) {
   const history = useHistory();
-  const dispatch = useDispatch();
+  let id;
+  if (pokemon.id) {
+    id = pokemon.id;
+  } else if (pokemon.url) {
+    const splitted = pokemon.url.split("/");
+    id = splitted[splitted.length - 2];
+  }
+
   return (
     <Card className="maincard">
       <div className="flexRow">
@@ -16,8 +21,7 @@ export default function PokemonListItem({ pokemon }) {
         <div className="flexRow1">
           <Button
             onClick={() => {
-              dispatch(setSelectedPokemonUrl(pokemon.url));
-              history.push("/pokemon");
+              history.push(`/pokemon/${id}`);
             }}
             floated="right"
             primary

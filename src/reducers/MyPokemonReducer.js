@@ -1,12 +1,10 @@
 import {
   ADD_TO_MY_POKEMONS,
-  FETCH_MY_SELECTED_POKEMON,
   REMOVE_FROM_MY_POKEMONS,
 } from "../actions/MyPokemonActions";
 
 const initialState = {
   myPokemonsList: [],
-  mySelectedPokemon: {},
 };
 
 export const MyPokemonReducer = (state = initialState, action) => {
@@ -29,8 +27,7 @@ export const MyPokemonReducer = (state = initialState, action) => {
         ...state,
         myPokemonsList: newList,
       };
-    case FETCH_MY_SELECTED_POKEMON:
-      return { ...state, mySelectedPokemon: action.payload };
+
     case REMOVE_FROM_MY_POKEMONS:
       return {
         ...state,

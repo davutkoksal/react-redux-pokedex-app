@@ -1,6 +1,5 @@
 export const FETCH_POKEMONS = "FETCH_POKEMONS";
 export const FETCH_SELECTED_POKEMON = "FETCH_SELECTED_POKEMON";
-export const SET_SELECTED_POKEMON_URL = "SET_SELECTED_POKEMON_URL";
 export const ADD_NEW_POKEMONS = "ADD_NEW_POKEMONS";
 export const fetchPokemons = () => {
   return async (dispatch) => {
@@ -14,13 +13,9 @@ export const fetchPokemons = () => {
   };
 };
 
-export const setSelectedPokemonUrl = (url) => {
-  return { type: SET_SELECTED_POKEMON_URL, payload: url };
-};
-
-export const fetchSelectedPokemon = (url) => {
+export const fetchSelectedPokemon = (id) => {
   return async (dispatch) => {
-    const response = await fetch(`${url}`);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const data = await response.json();
     dispatch({ type: FETCH_SELECTED_POKEMON, payload: data });
   };
