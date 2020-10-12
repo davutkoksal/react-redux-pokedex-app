@@ -10,6 +10,7 @@ import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import { PokemonReducer } from "./reducers/PokemonReducer";
 import { MyPokemonReducer } from "./reducers/MyPokemonReducer";
+import ScrollToTop from "./components/ScrollToTop";
 
 const rootReducer = combineReducers({
   pokemons: PokemonReducer,
@@ -21,7 +22,9 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
